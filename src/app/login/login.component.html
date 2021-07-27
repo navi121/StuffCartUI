@@ -5,6 +5,11 @@
   <meta charset="utf-8">
   <title>Login!</title>
   <link rel="stylesheet" href="../login/login.component.css">
+  <script>
+      function welcome(){
+          var x = document.getElementById("FirstName").nodeValue;
+      }
+  </script>
 </head>
 <body>
 <img src="../pickawood-gf8e6XvG_3E-unsplash.jpg" class="img">
@@ -22,7 +27,7 @@
         <label>Password</label>
       </div>
       <div class="pass">Forgot Password?</div>
-      <input type="submit" value="Login">
+      <input type="submit" value="Login" onclick="return welcome()">
       <div class="signup_link">
         Not a member? <a href="../sign-up/sign-up.component.html">Signup</a><br /><a href="../home-page/home-page.component.html">Continue Without Signing-Up</a>
       </div>

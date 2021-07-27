@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 import { ErrormessageComponent } from './errormessage/errormessage.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,16 @@ import { ErrormessageComponent } from './errormessage/errormessage.component';
     SignUpComponent,
     HomePageComponent,
     LoginComponent,
-    ErrormessageComponent
+    ErrormessageComponent,
+    NavbarComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

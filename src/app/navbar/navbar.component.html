@@ -1,0 +1,55 @@
+<div class="container">
+    <!-- <app-login></app-login> -->
+    
+    <ul ngbNav #nav="ngbNav" class="nav-tabs">
+    </ul>
+   
+    <div [ngbNavOutlet]="nav"></div>
+    
+  </div>
+  <section id="nav-bar">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">STUFFKART</a>
+        </li>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="/login">LOGIN</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="/signup">SIGNUP</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="/login">LOGOUT</a>
+            </li>
+            <li ngbDropdown class="nav-item dropdown ">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>CATEGORIES</a>
+              <div ngbDropdownMenu class="dropdown-menu ">
+                <a class="dropdown-item" >Mens</a>
+                <a class="dropdown-item" >Womens</a>
+                <a class="dropdown-item" >Kids</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" >Electronics</a>
+              </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">CART</a>
+              </li>
+          </ul>
+    </ul>
+    
+</section>
+
+
+<nav>
+    <!-- <a routerLink="/homepage">home-page</a> -->
+    <!-- <a *ngIf="!userService.loggedIn()" routerLink="/login">Login</a><br>
+    <a *ngIf="!userService.loggedIn()" routerLink="/signup">Signup</a><br>
+    <a routerLink="/login" >Logout</a> -->
+  </nav>
+  <router-outlet></router-outlet>
+  <!-- <app-home-page></app-home-page> -->
+  <!-- <app-sign-up></app-sign-up> -->

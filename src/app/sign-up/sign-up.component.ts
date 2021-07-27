@@ -33,6 +33,7 @@ resetForm(form ?:NgForm){
 public async OnSubmit(form: NgForm): Promise<void> {
   this.userService.registerUser(form.value)
   .subscribe(()=>{
+    sessionStorage.setItem('loggedUser', this.user.FirstName);
    this.router.navigateByUrl('home');
   this.resetForm(form);
   });
