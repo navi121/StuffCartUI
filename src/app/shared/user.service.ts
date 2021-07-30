@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
-import { User, UserLog } from './user.model';
+import { AddItem, User, UserLog } from './user.model';
 import { Router } from '@angular/router';
 @Injectable()
 
@@ -33,6 +33,17 @@ export class UserService {
       LastName: user.LastName
     }
     return this.http.post(this.rootUrl + '/StuffKart', body);
+  }
+
+  addproduct(additem:AddItem){
+    const body: AddItem={
+      ProductName: additem.ProductName,
+      ProductDescription: additem.ProductDescription,
+      Price: additem.Price,
+      Size: additem.Size,
+      Image:additem.Image
+    }
+    return this.http.post(this.rootUrl +'/AddProduct',body);
   }
 
 }

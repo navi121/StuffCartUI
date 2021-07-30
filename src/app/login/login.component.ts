@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   loginUser: any;
 
   public constructor(private userService: UserService,
-    public  readonly router: Router) { }
+    public readonly router: Router) { }
 
   public ngOnInit(): void {
     this.resetForm();

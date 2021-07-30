@@ -12,6 +12,8 @@ import { ErrormessageComponent } from './errormessage/errormessage.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { AdminuploadComponent } from './adminupload/adminupload.component';
+import { SellerloginComponent } from './sellerlogin/sellerlogin.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CarouselComponent } from './carousel/carousel.component';
     LoginComponent,
     ErrormessageComponent,
     NavbarComponent,
-    CarouselComponent
+    CarouselComponent,
+    AdminuploadComponent,
+    SellerloginComponent
   ],
   imports: [
     BrowserModule,

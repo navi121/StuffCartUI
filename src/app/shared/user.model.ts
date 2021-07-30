@@ -1,5 +1,3 @@
-import { LoginComponent } from "../login/login.component";
-
 export class User {
     MobileNumber: string;
     Password: string;
@@ -10,4 +8,12 @@ export class User {
 export class UserLog {
     Password: string;
     Email: string;
+}
+export class AddItem{
+    ProductName: string;
+    ProductDescription: string;
+    Price: string;
+    Size: string;
+    Image:string;
+
 }

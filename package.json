@@ -23,6 +23,7 @@
     "angular-bootstrap-md": "^11.1.0",
     "angular-responsive-carousel": "^2.1.2",
     "bootstrap": "^5.0.2",
+    "glob": "^7.1.7",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
