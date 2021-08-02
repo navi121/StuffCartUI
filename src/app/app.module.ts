@@ -14,6 +14,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { AdminuploadComponent } from './adminupload/adminupload.component';
 import { SellerloginComponent } from './sellerlogin/sellerlogin.component';
+import { CartdetailsComponent } from './cartdetails/cartdetails.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SellerloginComponent } from './sellerlogin/sellerlogin.component';
     NavbarComponent,
     CarouselComponent,
     AdminuploadComponent,
-    SellerloginComponent
+    SellerloginComponent,
+    CartdetailsComponent
   ],
   imports: [
     BrowserModule,

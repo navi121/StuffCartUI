@@ -1,4 +1,3 @@
-import { ReadVarExpr } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AddItem } from '../shared/user.model';
 import { NgForm } from '@angular/forms';
@@ -12,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AdminuploadComponent implements OnInit {
   public additem:AddItem;
+  
   constructor(private userService : UserService,
     public readonly router: Router) { }
 
@@ -23,15 +23,15 @@ export class AdminuploadComponent implements OnInit {
     if (form != null)
       form.reset();
     this.additem = {
-      ProductName:'',
-      ProductDescription:'',
-      Price:'',
-      Size:'',
-      Image:''
+      productName:'',
+      productDescription:'',
+      price:'',
+      size:'',
+      image:''
     }
   }
   public async OnSubmit(form: NgForm): Promise<void> {
-    this.userService.registerUser(form.value)
+    this.userService.addproduct(form.value)
     .subscribe(()=>{
       this.router.navigateByUrl('home');
     this.resetForm(form);

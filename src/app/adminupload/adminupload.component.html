@@ -1,38 +1,36 @@
-
- <!DOCTYPE html>
- <html lang="en">
+<html lang="en">
  <head>
    <meta charset="utf-8">
    <title>AddProducts</title>
    <link rel="stylesheet" href="../adminupload/adminupload.component.css">
  </head>
  <body>
- <img src="../bruno-kelzer-LvySG1hvuzI-unsplash.jpg" class="img">
+ <img src="../pickawood-gf8e6XvG_3E-unsplash.jpg" class="img">
      <div class="center">
      <h1>Add Product</h1>
      <form method="post" class="col s12 white" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
        <div class="txt_field">
-         <input  class="validate" type="text" name="ProductName" #FirstName="ngModel" [(ngModel)]="additem.ProductName" required  minlength="3">
+         <input  class="validate" type="text" name="productName" #ProductName="ngModel" [(ngModel)]="additem.productName" required  minlength="3">
          <span></span>
          <label>ProductName</label>
        </div>
        <div class="txt_field">
-        <input  class="validate" type="text" name="ProductDescription" #LastName="ngModel" [(ngModel)]="additem.ProductDescription" required  minlength="1">
+        <input  class="validate" type="text" name="productDescription" #ProductDescription="ngModel" [(ngModel)]="additem.productDescription" required  minlength="1">
         <span></span>
         <label>ProductDescription</label>
       </div>
       <div class="txt_field">
-        <input  class="validate" type="number" name="Price" #Email="ngModel" [(ngModel)]="additem.Price" required  minlength="3">
+        <input  class="validate" type="number" name="price" #Price="ngModel" [(ngModel)]="additem.price" required  minlength="3">
         <span></span>
         <label>Price INR</label>
       </div>
        <div class="txt_field">
-         <input type="validate" class="validate" type="text" name="Size" #Password="ngModel" [(ngModel)]="additem.Size" required  minlength="3">
+         <input type="validate" class="validate" type="text" name="size" #Size="ngModel" [(ngModel)]="additem.size" required  minlength="1">
          <span></span>
          <label>Size</label>
        </div>
        <div class="txt_field">
-        <input type="validate" class="validate" type="text" name="Image" #Password="ngModel" [(ngModel)]="additem.Image" required  minlength="3">
+        <input type="validate" class="validate" type="text" name="image" #Image="ngModel" [(ngModel)]="additem.image" required  minlength="3">
         <span></span>
         <label>Image</label>
       </div>
@@ -45,7 +43,7 @@
       </div>
        <input type="submit" value="AddProduct" href="../home-page/home-page.component.html"><br>
        <div class="signup_link">
-        <a href=""></a>
+        <a routerLink="/home">Home</a>
       </div>
      </form>
    </div>

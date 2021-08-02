@@ -1,60 +1,57 @@
-
-<style>
-  .card-title{
-    font-size:x-large;
+ <style>
+  .card-title {
+    font-size: medium;
     color: teal;
   }
-  .card-price{
+
+  .card-price {
     font-size: large;
   }
-  .card-size{
+
+  .card-size {
     font-size: medium;
     color: brown;
   }
-</style>
-<section id="about">
-  <div class="container">
-      <div class="row">
-      <div class="col-md-3">
-          
-                <div class="card mb-3">
-<img src="../pickawood-gf8e6XvG_3E-unsplash.jpg" class="card-img-top" alt="...">
-<div class="card-body">
-  <p class="card-text"><small class="text-muted">REEBOK</small></p>
-  <h5 class="card-title">Wills T-Shirt</h5>
-  <p class="card-title">T-Shirt</p>
-  <p class="card-price">Price: Rs:300</p>
-  <p class="card-size">Size- S/M/L</p>
-  <button type="button" class="btn btn-info">Add to Cart</button>
-</div>
-</div>
-          </div>
-          <div class="col-md-3 ">
-            <div class="card mb-3">
-                  <img src="../pickawood-gf8e6XvG_3E-unsplash.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <p class="card-text"><small class="text-muted">REEBOK</small></p>
-                    <h5 class="card-title">Tommy T-Shirt</h5>
-                    <p class="card-title">Sleve T-Shirt</p>
-                    <p class="card-price">Price: Rs:300</p>
-                    <p class="card-size">Size- S/M/L</p>
-                    <button type="button" class="btn btn-info">Add to Cart</button>
-                  </div>
-                </div>
-          </div>
-          <div class="col-md-3 ">
-            <div class="card mb-3">
-                  <img src="../pickawood-gf8e6XvG_3E-unsplash.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <p class="card-text"><small class="text-muted">PUMA</small></p>
-                    <h5 class="card-title">Commics Shirt</h5>
-                    <p class="card-title">Full Hand</p>
-                    <p class="card-price">Price: Rs:400</p>
-                    <p class="card-size">Size- S/M/L</p>
-                    <button type="button" class="btn btn-info">Add to Cart</button>
-                  </div>
-                </div>
-          </div>
+  
+</style> 
+<!-- <section id="about"> -->
+  <div class="container" >
+    <div class="row">
+    <div class="col-md-3" *ngFor="let product of userService.list">
+        <div class="card mb-3" *ngIf="product">
+          <img src="../pickawood-gf8e6XvG_3E-unsplash.jpg" class="card-img-top" >
+          <div class="card-body"><span>
+            <h3 class="card-text"><small class="text-muted">{{product.productName}}</small></h3>
+            <p class="card-title" >Description:{{product.productDescription}}</p>
+            <p class="card-price" >Price : {{product.price}}</p>
+            <p class="card-size" >Size : {{product.size}}</p>
+            <p class="card-size">img: {{product.image}}</p>
+            <button type="button" class="btn btn-info" (click)="addToCart(product)">Add to Cart</button><p></p><button type="button" class="btn btn-success">Buy</button>
+          </span>
+         </div>
+        </div>
       </div>
-      </div>
-</section>
+    </div>
+  </div>
+<!-- </section> -->
+
+<!-- <div class="container">
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th>ProductName</th>
+      <th>ProductDescription</th>
+      <th>Price</th>
+      <th>Size</th>
+      <th>Image</th>
+    </tr>
+    <tbody>
+    <tr *ngFor="let product of userService.list ">
+      <td>{{product.productName}}</td>
+      <td>{{product.productDescription}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.size}}</td>
+      <td>{{product.image}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div> -->

@@ -13,7 +13,7 @@ export class SignUpComponent implements OnInit {
   user: User;
 
   constructor(private userService : UserService,
-    public  readonly router: Router) { }
+    public readonly router: Router) { }
 
   ngOnInit(): void {
     this.resetForm();

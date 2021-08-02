@@ -10,10 +10,16 @@ export class UserLog {
     Email: string;
 }
 export class AddItem{
-    ProductName: string;
-    ProductDescription: string;
-    Price: string;
-    Size: string;
-    Image:string;
+    productName: string;
+    productDescription: string;
+    price: string;
+    size: string;
+    image:string;
 
+}
+export class CartItem{
+    productName: string;
+    productDescription: string;
+    price: string;
+    size: string;
 }

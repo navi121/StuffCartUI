@@ -1,0 +1,19 @@
+<div class="container">
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th>ProductName</th>
+        <th>ProductDescription</th>
+        <th>Price</th>
+        <th>Size</th>
+      </tr>
+      <tbody>
+      <tr class="cart-item" *ngFor="let getCart of items ">
+        <td>{{getCart.productName}}</td>
+        <td>{{getCart.productDescription}}</td>
+        <td>{{getCart.price}}</td>
+        <td>{{getCart.size}}</td>
+      </tr>
+      <button class="btn btn-danger" (click)="clear">Clear Cart</button>
+      </tbody>
+    </table>
+  </div>

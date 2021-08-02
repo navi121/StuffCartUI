@@ -15,7 +15,7 @@
 <img src="../pickawood-gf8e6XvG_3E-unsplash.jpg" class="img">
     <div class="center">
     <h1>Login</h1>
-    <form method="post" class="col s12 white" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
+    <form method="post" class="col s12 white" #log="ngForm" (ngSubmit)="OnSubmit(log)">
       <div class="txt_field">
         <input  class="validate" type="text" name="Email" #Email="ngModel" [(ngModel)]="login.Email" required  minlength="3">
         <span></span>
@@ -29,8 +29,8 @@
       <div class="pass">Forgot Password?</div>
       <input type="submit" value="Login" onclick="return welcome()">
       <div class="signup_link">
-        Not a member? <a href="../sign-up/sign-up.component.html">Signup</a><br /><a href="../home-page/home-page.component.html">Continue Without Signing-Up</a>
-        <br /><a href="../adminupload/adminupload.component.html">Add Product</a>
+        Not a member? <a routerLink="/signup">Signup</a><br /><a routerLink="/home" >Continue Without Signing-Up</a>
+        <br /><a routerLink="/addproduct">Add Product</a>
       </div>
      
     </form>

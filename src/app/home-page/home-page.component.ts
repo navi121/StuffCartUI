@@ -1,18 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { SignUpComponent } from '../sign-up/sign-up.component';
 import { UserService } from '../shared/user.service';
-import { LoginComponent } from '../login/login.component';
+import { Router } from '@angular/router';
+import { AddItem, CartItem } from '../shared/user.model';
+import { NgForm } from '@angular/forms';
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-
-  constructor(private userService: UserService) { }
-  ngOnInit(): void {
-    // this.userDisplayName = sessionStorage.getItem('loggedUser');
+  
+  addToCart(product: CartItem){
+    this.userService.addToCart(product);
+    window.alert('product added');
   }
+
+  constructor(public userService: UserService,public readonly router: Router) { }
+  ngOnInit(): void {
+    
+    // this.userDisplayName = sessionStorage.getItem('loggedUser');
+    this.userService.getdetails();
+  }
+  public async OnSubmit(form: NgForm): Promise<void> {
+    this.userService.registerUser(form.value)
+    .subscribe(()=>{
+    });
+  }
+}
   // ngAfterViewInit(){
   //   this.getUsername();
   // }
@@ -22,5 +37,5 @@ export class HomePageComponent implements OnInit {
   //       console.log("username is "+this.username);
   //   });
   // }
-}
+
 
