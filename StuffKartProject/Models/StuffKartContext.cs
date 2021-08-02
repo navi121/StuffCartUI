@@ -9,18 +9,14 @@ namespace StuffKartProject.Models
 {
     public partial class StuffKartContext : DbContext
     {
-        //public StuffKartContext(Microsoft.Extensions.Options.IOptions<UserDetail> user)
-        //{
-        //}
+        public  StuffKartContext(DbContextOptions<StuffKartContext> options) : base(options)
+        {
 
-        //public StuffKartContext(DbContextOptions<StuffKartContext> options)
-        //    : base(options)
-        //{
-        //}
-
+        }
         public virtual DbSet<CartDetail> CartDetails { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<UserDetail> UserDetails { get; set; }
+        public virtual DbSet<DashBoard> Products { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -37,9 +33,25 @@ namespace StuffKartProject.Models
 
             modelBuilder.Entity<CartDetail>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.ItemId})
+                    .HasName("PK__UserDeta__6F9E65E3D0D59B88");
 
-                entity.Property(e => e.ItemName)
+                entity.Property(e => e.ProductName)
+                      .IsRequired()
+                      .HasMaxLength(50)
+                      .IsUnicode(false);
+
+                entity.Property(e => e.ProductDescription)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Price)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Size)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -55,15 +67,45 @@ namespace StuffKartProject.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
+            
+            modelBuilder.Entity<DashBoard>(entity =>
+            {
+                entity.HasKey(e => new { e.ProductId })
+                    .HasName("PK__UserDeta__6F9E65E3D0D59B88");
+
+                entity.ToTable("DashBoard");
+
+                entity.Property(e => e.ProductName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ProductDescription)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Price)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Size)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Image)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
 
             modelBuilder.Entity<UserDetail>(entity =>
             {
                 entity.HasKey(e => new { e.MobileNumber })
                     .HasName("PK__UserDeta__6F9E65E3D0D59B87");
 
-                // .IsRequired()
-                //.HasMaxLength(50)
-                //.IsUnicode(false);
                 entity.Property(e => e.Email)
                     .IsRequired()
                     .HasMaxLength(50)
@@ -82,11 +124,7 @@ namespace StuffKartProject.Models
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
-
-                //entity.Property(e => e.UserId)
-                //    .IsRequired()
-                //    .HasMaxLength(50)
-                //    .IsUnicode(false);
+             
             });
 
             OnModelCreatingPartial(modelBuilder);

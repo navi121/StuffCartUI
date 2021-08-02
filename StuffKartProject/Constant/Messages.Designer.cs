@@ -61,6 +61,15 @@ namespace StuffKartProject.Constant {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter Details Correctly.
+        /// </summary>
+        public static string InvalidContent {
+            get {
+                return ResourceManager.GetString("InvalidContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid email or password.
         /// </summary>
         public static string InvalidDetails {

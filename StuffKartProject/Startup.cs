@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using StuffKartProject.IService;
+using StuffKartProject.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,9 +30,11 @@ namespace StuffKartProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<StuffKartProject.Models.StuffKartContext>();
+            services.AddScoped<IImageService, DashBoardService>();
             //onfig.(new EnableCorsAttribute("http://localhost:4200", headers: "*", methods: "*"))
             //Id = table.Column<long>(nullable: false)
             //            .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+          
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
