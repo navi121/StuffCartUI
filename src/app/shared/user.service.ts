@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 export class UserService {
   list: AddItem[];
   items: CartItem[]=[];
-
+  private sum=0;
+  private value=[];
   readonly rootUrl = 'http://localhost:50277';
   constructor(private http: HttpClient,
     private _router:Router) { }
@@ -67,5 +68,12 @@ export class UserService {
     this.items = [];
     return this.items;
   }
+  add(items: CartItem){  
+    this.value=items  
+    for(let j=0;j<data.length;j++){  
+         this.sum+= this.value[j].amt  
+         }  
+  }
+  
 
 }
