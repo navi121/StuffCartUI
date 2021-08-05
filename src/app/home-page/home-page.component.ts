@@ -10,10 +10,11 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  
+  quantity : number=0;
   addToCart(product: CartItem){
     this.userService.addToCart(product);
     window.alert('product added');
+    //this.quantity= this.quantity * Number(product.price);
   }
 
   constructor(public userService: UserService,public readonly router: Router) { }
@@ -27,6 +28,7 @@ export class HomePageComponent implements OnInit {
     .subscribe(()=>{
     });
   }
+  
 }
   // ngAfterViewInit(){
   //   this.getUsername();

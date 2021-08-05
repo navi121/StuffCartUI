@@ -23,5 +23,3 @@ export class CartItem{
     price: string;
     size: string;
 }
-
-

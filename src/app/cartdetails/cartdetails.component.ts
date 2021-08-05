@@ -8,9 +8,8 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./cartdetails.component.css']
 })
 export class CartdetailsComponent implements OnInit {
-  title = 'angularbootstrap';
-  inputnumber = 0;
-  qprice=1;
+  inputnumber = 1;
+  qprice: number;
   items = this.userService.getItems();
   clear = this.userService.clearCart();
   constructor(public userService: UserService) { }
@@ -18,21 +17,21 @@ export class CartdetailsComponent implements OnInit {
   
  
   ngOnInit(): void {
-    //this.userService.getcartdetails();
+    
   }
-  plus()
+  plus(getCart : CartItem)
   {
    this.inputnumber = this.inputnumber+1;
-   this.qprice=1;
-    this.qprice= this.inputnumber*this.qprice;
+   this.qprice= this.inputnumber * Number(getCart.price);
+   
   }
-  minus()
+  minus(getCart : CartItem)
   {
     if(this.inputnumber != 0)
   {
    this.inputnumber = this.inputnumber-1;
-   this.qprice=1;
-   this.qprice= this.inputnumber*this.qprice;
+   this.qprice= this.inputnumber * Number(getCart.price);
   }
 }
+
 }

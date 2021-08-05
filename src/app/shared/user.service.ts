@@ -10,7 +10,7 @@ export class UserService {
   list: AddItem[];
   items: CartItem[]=[];
   private sum=0;
-  private value=[];
+  //private value: v[];
   readonly rootUrl = 'http://localhost:50277';
   constructor(private http: HttpClient,
     private _router:Router) { }
@@ -56,8 +56,24 @@ export class UserService {
   // getcartdetails(){
   //   this.http.get(this.rootUrl +'/CartDetails').toPromise().then(res =>this.items=res as CartItem[]);
   // }
+  CartDetails(product: CartItem){
+      const body: CartItem={
+      productName: product.productName,
+      productDescription: product.productDescription,
+      price: product.price,
+      size: product.size
+      }
+      return this.http.post(this.rootUrl + '/CartDetails' , body);
+  }
+
   addToCart(product: CartItem){
-    this.http.post(this.rootUrl +'/CartDetails',product);
+    // const body: CartItem={
+    //   productName: product.productName,
+    //   productDescription: product.productDescription,
+    //   price: product.price,
+    //   size: product.size
+    //   }
+    // this.http.post(this.rootUrl +'/CartDetails',body);
     this.items.push(product);
     
   }
@@ -68,12 +84,12 @@ export class UserService {
     this.items = [];
     return this.items;
   }
-  add(items: CartItem){  
-    this.value=items  
-    for(let j=0;j<data.length;j++){  
-         this.sum+= this.value[j].amt  
-         }  
-  }
+  // add(items: CartItem){  
+  //   this.value=items  
+  //   for(let j=0;j<items.length;j++){  
+  //        this.sum+= this.value[j].price  
+  //        }  
+  // }
   
 
 }

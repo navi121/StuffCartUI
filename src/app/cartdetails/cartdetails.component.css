@@ -3,32 +3,6 @@
 .subtotal {
     float: right;
      width: 35%;
-      .totalRow {
-        padding: .5em;
-       text-align: right;
-      
-        &.final {
-          font-size: 1.25em;
-          font-weight: bold;
-        }
-        span {
-          display: inline-block;
-          padding: 0 0 0 1em;
-          text-align: right;
-         
-        }
-        .label {
-           font-family: $fontSans;
-          font-size: .85em;
-          text-transform: uppercase;
-          color: #777;
-        }
-        .value {
-     
-          letter-spacing: -.025em;
-          width: 35%;
-        }
-      }
     }
 
     .quantity {
