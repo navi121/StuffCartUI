@@ -27,7 +27,9 @@ export class AdminuploadComponent implements OnInit {
       productDescription:'',
       price:'',
       size:'',
-      image:''
+      image:'',
+      quantity:'',
+      total:''
     }
   }
   public async OnSubmit(form: NgForm): Promise<void> {

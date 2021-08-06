@@ -45,7 +45,9 @@ export class UserService {
       productDescription: additem.productDescription,
       price: additem.price,
       size: additem.size,
-      image:additem.image
+      image:additem.image,
+      quantity:additem.quantity,
+      total: additem.total
     }
     return this.http.post(this.rootUrl +'/AddProduct',body);
   }
@@ -56,24 +58,27 @@ export class UserService {
   // getcartdetails(){
   //   this.http.get(this.rootUrl +'/CartDetails').toPromise().then(res =>this.items=res as CartItem[]);
   // }
-  CartDetails(product: CartItem){
+  addToCart(product: CartItem){
       const body: CartItem={
       productName: product.productName,
       productDescription: product.productDescription,
       price: product.price,
-      size: product.size
+      size: product.size,
+      quantity: product.quantity,
+      total: product.total
       }
+      this.items.push(product);
       return this.http.post(this.rootUrl + '/CartDetails' , body);
   }
 
-  addToCart(product: CartItem){
+  c(product: CartItem){
     // const body: CartItem={
     //   productName: product.productName,
     //   productDescription: product.productDescription,
     //   price: product.price,
     //   size: product.size
     //   }
-    // this.http.post(this.rootUrl +'/CartDetails',body);
+    this.http.post(this.rootUrl +'/CartDetails',product);
     this.items.push(product);
     
   }

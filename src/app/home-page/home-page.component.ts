@@ -23,8 +23,8 @@ export class HomePageComponent implements OnInit {
     // this.userDisplayName = sessionStorage.getItem('loggedUser');
     this.userService.getdetails();
   }
-  public async OnSubmit(form: NgForm): Promise<void> {
-    this.userService.registerUser(form.value)
+  public async Click(button: NgForm): Promise<void> {
+    this.userService.addToCart(button.value)
     .subscribe(()=>{
     });
   }

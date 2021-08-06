@@ -15,11 +15,14 @@ export class AddItem{
     price: string;
     size: string;
     image:string;
-
+    quantity: string;
+    total: string;
 }
 export class CartItem{
     productName: string;
     productDescription: string;
     price: string;
     size: string;
+    quantity: string;
+    total: string;
 }
