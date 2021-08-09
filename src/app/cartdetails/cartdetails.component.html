@@ -8,7 +8,7 @@
         <th>Price</th>
         <th>Size</th>
         <th>Quantity</th>
-        <th>Total Price</th>
+        <th>Quantity Price</th>
       </tr>
       <tbody>
       <tr class="cart-item" *ngFor="let getCart of items; let i=index">
@@ -34,11 +34,16 @@
       </tr>
       <button class="btn btn-danger" (click)="clear">Clear Cart</button>
       </tbody>
-
     </table>
   </div> 
+  <div class="form-check-inline" style="margin-left: 930px;">
+    Total Price
+    <input type="text" class="form-control" [(ngModel)]="Quantity" readonly>
+    <button  class="btn btn-success" routerLink="/checkout">Place Order</button>
+    </div>
   <div class="subtotal cf">
+    
     <ul>
-      <button type="button" class="btn btn-success">Checkout</button>
+      
     </ul>
   </div>

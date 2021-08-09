@@ -4,6 +4,8 @@ export class User {
     Email: string;
     FirstName: string;
     LastName: string;
+    SecurityQuestionPlace: string;
+    SecurityQuestionMobile: string;
 }
 export class UserLog {
     Password: string;
@@ -25,4 +27,12 @@ export class CartItem{
     size: string;
     quantity: string;
     total: string;
+}
+export class Reset{
+    MobileNumber: string;
+    SecurityQuestionPlace: string;
+    SecurityQuestionMobile: string;
+}
+export class Pass{
+    Password: string;
 }

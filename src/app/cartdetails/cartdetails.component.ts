@@ -10,8 +10,9 @@ import { UserService } from '../shared/user.service';
 })
 export class CartdetailsComponent implements OnInit {
   Quantity = 1;
+  a:number;
   qprice: number;
-
+  empList: Array<number> = [];
   items = this.userService.getItems();
   clear = this.userService.clearCart();
   constructor(public userService: UserService) { }
@@ -30,12 +31,14 @@ export class CartdetailsComponent implements OnInit {
     var n=Number(getCart.quantity);
     n++;
     getCart.quantity=String(n);
-    //his.Quantity=n;
     var finalp=Number(getCart.price);
     finalp=finalp*n;
-    //getCart.price
-    //getCart.price=String(finalp);
     getCart.total=String(finalp);
+    this.empList.push(Number(getCart.total));
+    for(var i = 0;i<this.empList.length;i++) { 
+    this.a=this.empList[i];
+    this.Quantity=this.a + this.empList[i];
+   }
     // this.i++;
     // this.quantity=this.i;
      // this.Quantity = this.Quantity+1;

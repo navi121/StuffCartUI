@@ -36,6 +36,16 @@
         <span></span>
         <label>MobileNumber</label>
       </div>
+      <div class="txt_field">
+        <input  class="validate" type="text" name="SecurityQuestionPlace" #SecurityQuestionPlace="ngModel" [(ngModel)]="user.SecurityQuestionPlace" required  minlength="3">
+        <span></span>
+        <label>Place You Have Born</label>
+      </div>
+      <div class="txt_field">
+        <input  class="validate" type="text" name="SecurityQuestionMobile" #SecurityQuestionMobile="ngModel" [(ngModel)]="user.SecurityQuestionMobile" required  minlength="3">
+        <span></span>
+        <label>Your First Mobile</label>
+      </div>
        <input type="submit" value="Signup" href="../home-page/home-page.component.html">
        <div class="signup_link">
         Already a member? <a routerLink="/login">SignIn</a><br /><a routerLink="/home">Continue Without Signing-Up</a>

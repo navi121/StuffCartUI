@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
-import { AddItem, User, UserLog ,CartItem} from './user.model';
+import { AddItem, User, UserLog ,CartItem, Reset, Pass} from './user.model';
 import { Router } from '@angular/router';
 @Injectable()
 
@@ -11,10 +11,11 @@ export class UserService {
   items: CartItem[]=[];
   private sum=0;
   //private value: v[];
-  readonly rootUrl = 'http://localhost:50277';
+  readonly rootUrl = 'http://localhost:50278';
   constructor(private http: HttpClient,
     private _router:Router) { }
-  public loginUser(login : UserLog): Observable<any>{
+ 
+    public loginUser(login : UserLog): Observable<any>{
     const body: UserLog = {
       Password: login.Password,
       Email: login.Email,
@@ -28,13 +29,29 @@ export class UserService {
   //   localStorage.removeItem('token')
   //   this._router.navigate(['home'])
   // }
+  public resetUser(reset: Reset): Observable<any>{
+    const body: Reset = {
+      MobileNumber: reset.MobileNumber,
+      SecurityQuestionPlace: reset.SecurityQuestionPlace,
+      SecurityQuestionMobile: reset.SecurityQuestionMobile
+    }
+    return this.http.get(this.rootUrl + '/StuffKart/Reset');
+  }
+  public resetPassword(pass: Pass){
+    const body: Pass= {
+      Password: pass.Password
+    }
+    return this.http.put(this.rootUrl + '/StuffKart/Forget',body);
+  }
   registerUser(user : User){
     const body: User = {
      MobileNumber:user.MobileNumber,
       Password: user.Password,
       Email: user.Email,
       FirstName: user.FirstName,
-      LastName: user.LastName
+      LastName: user.LastName,
+      SecurityQuestionPlace: user.SecurityQuestionPlace,
+      SecurityQuestionMobile: user.SecurityQuestionMobile
     }
     return this.http.post(this.rootUrl + '/StuffKart', body);
   }

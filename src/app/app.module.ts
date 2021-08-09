@@ -15,7 +15,10 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { AdminuploadComponent } from './adminupload/adminupload.component';
 import { SellerloginComponent } from './sellerlogin/sellerlogin.component';
 import { CartdetailsComponent } from './cartdetails/cartdetails.component';
-
+import { CheckoutComponent } from './checkout/checkout.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,14 +30,18 @@ import { CartdetailsComponent } from './cartdetails/cartdetails.component';
     CarouselComponent,
     AdminuploadComponent,
     SellerloginComponent,
-    CartdetailsComponent
+    CartdetailsComponent,
+    CheckoutComponent,
+    ForgetpasswordComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
