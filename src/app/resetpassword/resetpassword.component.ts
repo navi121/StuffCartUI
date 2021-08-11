@@ -25,6 +25,7 @@ export class ResetpasswordComponent implements OnInit {
       form.reset();
     this.pass = {
      Password:'',
+     MobileNumber:'',
     }
   }
 

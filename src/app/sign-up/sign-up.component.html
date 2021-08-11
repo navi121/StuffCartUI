@@ -1,58 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
 
- <!DOCTYPE html>
- <html lang="en">
- <head>
-   <meta charset="utf-8">
-   <title>Signup!</title>
-   <link rel="stylesheet" href="../sign-up/sign-up.component.css">
- </head>
- <body>
- <img src="../pickawood-gf8e6XvG_3E-unsplash.jpg" class="img">
-     <div class="center">
-     <h1>Signup</h1>
-     <form method="post" class="col s12 white" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
-       <div class="txt_field">
-         <input  class="validate" type="text" name="FirstName" #FirstName="ngModel" [(ngModel)]="user.FirstName" required  minlength="3">
-         <span></span>
-         <label>FirstName</label>
-       </div>
-       <div class="txt_field">
-        <input  class="validate" type="text" name="LastName" #LastName="ngModel" [(ngModel)]="user.LastName" required  minlength="1">
+<head>
+  <meta charset="utf-8">
+  <title>Signup!</title>
+  <link rel="stylesheet" href="../sign-up/sign-up.component.css">
+</head>
+
+<body>
+  <img src="../pickawood-gf8e6XvG_3E-unsplash.jpg" class="img">
+  <div class="center">
+    <h1>Signup</h1>
+    <form method="post" class="col s12 white" #userRegistrationForm="ngForm"
+      (ngSubmit)="OnSubmit(userRegistrationForm)">
+      <div class="txt_field">
+        <input class="validate" type="text" name="FirstName" #FirstName="ngModel" [(ngModel)]="user.FirstName" required
+          minlength="3">
+        <span></span>
+        <label>FirstName</label>
+      </div>
+      <div class="txt_field">
+        <input class="validate" type="text" name="LastName" #LastName="ngModel" [(ngModel)]="user.LastName" required
+          minlength="1">
         <span></span>
         <label>LastName</label>
       </div>
       <div class="txt_field">
-        <input  class="validate" type="text" name="Email" #Email="ngModel" [(ngModel)]="user.Email" required  minlength="3">
+        <input class="validate" type="text" name="Email" #Email="ngModel" [(ngModel)]="user.Email" required
+          minlength="3">
         <span></span>
         <label>Email</label>
       </div>
-       <div class="txt_field">
-         <input type="password" class="validate" type="password" name="Password" #Password="ngModel" [(ngModel)]="user.Password" required  minlength="3">
-         <span></span>
-         <label>Password</label>
-       </div>
-       <div class="txt_field">
-        <input  class="validate" type="text" name="MobileNumber" #MobileNumber="ngModel" [(ngModel)]="user.MobileNumber" required  minlength="3">
+      <div class="txt_field">
+        <input type="password" class="validate" type="password" name="Password" #Password="ngModel"
+          [(ngModel)]="user.Password" required minlength="3">
+        <span></span>
+        <label>Password</label>
+      </div>
+      <div class="txt_field">
+        <input class="validate" type="text" name="MobileNumber" #MobileNumber="ngModel" [(ngModel)]="user.MobileNumber"
+          required minlength="3">
         <span></span>
         <label>MobileNumber</label>
       </div>
-      <div class="txt_field">
-        <input  class="validate" type="text" name="SecurityQuestionPlace" #SecurityQuestionPlace="ngModel" [(ngModel)]="user.SecurityQuestionPlace" required  minlength="3">
-        <span></span>
-        <label>Place You Have Born</label>
+      <input type="submit" value="Signup" href="../home-page/home-page.component.html">
+      <div class="signup_link">
+        Already a member? <a routerLink="/login">SignIn</a><br /><a routerLink="/home">Skip</a>
       </div>
-      <div class="txt_field">
-        <input  class="validate" type="text" name="SecurityQuestionMobile" #SecurityQuestionMobile="ngModel" [(ngModel)]="user.SecurityQuestionMobile" required  minlength="3">
-        <span></span>
-        <label>Your First Mobile</label>
-      </div>
-       <input type="submit" value="Signup" href="../home-page/home-page.component.html">
-       <div class="signup_link">
-        Already a member? <a routerLink="/login">SignIn</a><br /><a routerLink="/home">Continue Without Signing-Up</a>
-      </div>
-     </form>
-   </div>
-   
- </body>
- </html>
- 
+    </form>
+  </div>
+
+</body>
+
+</html>

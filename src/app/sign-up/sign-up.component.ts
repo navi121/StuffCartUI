@@ -27,8 +27,6 @@ resetForm(form ?:NgForm){
     Email:'',
     FirstName:'',
     LastName:'',
-    SecurityQuestionPlace:'',
-    SecurityQuestionMobile:'',
 
   }
 }

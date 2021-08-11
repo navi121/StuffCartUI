@@ -1,0 +1,21 @@
+ .card-title {
+   font-size: medium;
+   color: teal;
+ }
+
+ .card-price {
+   font-size: large;
+ }
+
+ .card-size {
+   font-size: medium;
+   color: brown;
+ }
+ .container button{
+    margin-right:16px;
+ }
+
+ .container button:last-child{
+    margin-right:0px;
+ }
+ 

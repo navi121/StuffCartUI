@@ -1,21 +1,4 @@
-
- <style>
-  .card-title {
-    font-size: medium;
-    color: teal;
-  }
-
-  .card-price {
-    font-size: large;
-  }
-
-  .card-size {
-    font-size: medium;
-    color: brown;
-  }
-  
-</style> 
-
+<link rel="stylesheet" href="../home-page/home-page.component.css">
 <!-- <section id="about"> -->
   <div class="container" >
     <div class="row">
@@ -28,7 +11,7 @@
             <p class="card-price" >Price : ₹{{product.price}}</p>
             <p class="card-size" >Size : {{product.size}}</p>
             <p class="card-size">img: {{product.image}}</p>
-            <button type="button" type="submit" class="btn btn-info" (click)="addToCart(product)">Add to Cart</button><p></p><button type="button" class="btn btn-success">Buy</button>
+            <button type="button" type="submit" class="btn btn-info" (click)="addToCart(product)">Add to Cart</button><button type="button" class="btn btn-success">Buy</button>
           </span>
          </div>
         </div>

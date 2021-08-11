@@ -20,7 +20,7 @@ export class UserService {
       Password: login.Password,
       Email: login.Email,
     }
-    return this.http.post(this.rootUrl + '/StuffKart/Login', body);
+    return this.http.post(this.rootUrl + '/Login', body);
   }
   // loggedIn(){
   //   return !!localStorage.getItem('token')
@@ -31,17 +31,16 @@ export class UserService {
   // }
   public resetUser(reset: Reset): Observable<any>{
     const body: Reset = {
-      MobileNumber: reset.MobileNumber,
-      SecurityQuestionPlace: reset.SecurityQuestionPlace,
-      SecurityQuestionMobile: reset.SecurityQuestionMobile
+      Email: reset.Email
     }
-    return this.http.get(this.rootUrl + '/StuffKart/Reset');
+    return this.http.post(this.rootUrl + '/Forget',body);
   }
   public resetPassword(pass: Pass){
     const body: Pass= {
-      Password: pass.Password
+      Password: pass.Password,
+      MobileNumber: pass.MobileNumber
     }
-    return this.http.put(this.rootUrl + '/StuffKart/Forget',body);
+    return this.http.put(this.rootUrl + '/ResetPassword/'+ pass.MobileNumber, body);
   }
   registerUser(user : User){
     const body: User = {
@@ -49,9 +48,7 @@ export class UserService {
       Password: user.Password,
       Email: user.Email,
       FirstName: user.FirstName,
-      LastName: user.LastName,
-      SecurityQuestionPlace: user.SecurityQuestionPlace,
-      SecurityQuestionMobile: user.SecurityQuestionMobile
+      LastName: user.LastName
     }
     return this.http.post(this.rootUrl + '/StuffKart', body);
   }

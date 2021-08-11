@@ -23,9 +23,7 @@ export class ForgetpasswordComponent implements OnInit {
     if (form != null)
       form.reset();
     this.reset = {
-      MobileNumber: '',
-      SecurityQuestionPlace: '',
-      SecurityQuestionMobile:'',
+      Email: '',
     }
   }
 
@@ -34,7 +32,7 @@ export class ForgetpasswordComponent implements OnInit {
     .subscribe(()=>{
       // sessionStorage.setItem('loggedUser', this.login.Email);
       //this.userService.loginUser(this.loginUser.Email);
-     this.router.navigateByUrl('home');
+     this.router.navigateByUrl('pass');
     this.resetForm(form);
     });
   }
