@@ -3,6 +3,7 @@ import { UserService } from '../shared/user.service';
 import { Router } from '@angular/router';
 import { AddItem, CartItem } from '../shared/user.model';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home-page',
@@ -11,16 +12,15 @@ import { NgForm } from '@angular/forms';
 })
 export class HomePageComponent implements OnInit {
   quantity : number=0;
-  addToCart(product: CartItem){
+  searchText:any;
+
+  public addToCart(product: CartItem){
     this.userService.addToCart(product);
     window.alert('product added');
-    //this.quantity= this.quantity * Number(product.price);
   }
-
+  public isLoggedIn$: Observable<boolean>;
   constructor(public userService: UserService,public readonly router: Router) { }
   ngOnInit(): void {
-    
-    // this.userDisplayName = sessionStorage.getItem('loggedUser');
     this.userService.getdetails();
   }
   public async Click(button: NgForm): Promise<void> {
@@ -30,14 +30,5 @@ export class HomePageComponent implements OnInit {
   }
   
 }
-  // ngAfterViewInit(){
-  //   this.getUsername();
-  // }
-  // getUsername(){
-  //   this.userService.loginUser().then((username)=>{
-  //       this.username=this.username;
-  //       console.log("username is "+this.username);
-  //   });
-  // }
-
+  
 

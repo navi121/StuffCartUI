@@ -33,3 +33,10 @@ export class Pass{
     Password: string;
     MobileNumber:string;
 }
+export class Admin{
+    Admin: string;
+    Password: string;
+}
+export class Search{
+    ProductName: string;
+}

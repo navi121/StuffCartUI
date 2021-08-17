@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { ErrormessageComponent } from '../errormessage/errormessage.component';
 import { UserLog } from '../shared/user.model';
 import { UserService } from '../shared/user.service';
@@ -13,15 +14,20 @@ import { UserService } from '../shared/user.service';
 export class LoginComponent implements OnInit {
 
   public login: UserLog;
-  loginUser: any;
+  public loginUser: any;
+  public invalidLogin = false;
+  private userSubject: BehaviorSubject<UserLog>;
+  public user: Observable<UserLog>;
 
   public constructor(private userService: UserService,
-    public readonly router: Router) { }
+    public readonly router: Router) {}
 
   public ngOnInit(): void {
     this.resetForm();
   }
-
+  public onclick(){
+    localStorage.removeItem('loggedUser');
+  }
   public resetForm(form?: NgForm) {
     if (form != null)
       form.reset();
@@ -33,11 +39,11 @@ export class LoginComponent implements OnInit {
 
   public async OnSubmit(form: NgForm): Promise<void> {
     this.userService.loginUser(form.value)
-    .subscribe(()=>{
-      // sessionStorage.setItem('loggedUser', this.login.Email);
-      //this.userService.loginUser(this.loginUser.Email);
-     this.router.navigateByUrl('home');
-    this.resetForm(form);
-    });
+      .subscribe(() => {
+        this.router.navigateByUrl('home');
+        this.resetForm(form);
+      });
   }
 }
+
+

@@ -1,23 +1,37 @@
 <link rel="stylesheet" href="../home-page/home-page.component.css">
 <!-- <section id="about"> -->
-  <div class="container" >
-    <div class="row">
-    <div class="col-md-3" *ngFor="let product of userService.list; let i=index">
-        <div class="card mb-3" *ngIf="product">
-          <img src="../pickawood-gf8e6XvG_3E-unsplash.jpg" class="card-img-top" >
-          <div class="card-body" attr.for="{{'getCart.productName'+ i}}"><span>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let product of userService.list ">
+      <div class="card mb-3" *ngIf="product">
+        <img src="../pickawood-gf8e6XvG_3E-unsplash.jpg" class="card-img-top">
+        <div class="card-body"><span>
             <h3 class="card-text"><small class="text-muted">{{product.productName}}</small></h3>
-            <p class="card-title" >Description:{{product.productDescription}}</p>
-            <p class="card-price" >Price : ₹{{product.price}}</p>
-            <p class="card-size" >Size : {{product.size}}</p>
+            <p class="card-title">Description:{{product.productDescription}}</p>
+            <p class="card-price">Price : ₹{{product.price}}</p>
+            <p class="card-size">Size : {{product.size}}</p>
             <p class="card-size">img: {{product.image}}</p>
-            <button type="button" type="submit" class="btn btn-info" (click)="addToCart(product)">Add to Cart</button><button type="button" class="btn btn-success">Buy</button>
+            <button type="button" type="submit" class="btn btn-info" (click)="addToCart(product)">Add to
+              Cart</button><button type="button" class="btn btn-success" (click)="addToCart(product)">Buy Now</button>
           </span>
-         </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" routerLink="/home">1</a></li>
+    <li class="page-item"><a class="page-link" routerLink="/home">2</a></li>
+    <li class="page-item"><a class="page-link" routerLink="/home">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
 <!-- </section> -->
 
 <!-- <div class="container">

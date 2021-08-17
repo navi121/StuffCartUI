@@ -17,13 +17,13 @@
         <td>{{getCart.price}}</td>
         <td>{{getCart.size}}</td>
         <div class="form-check-inline">
-          <button class="btn btn-primary" id={{i}} (click)="plus(getCart)">+<i class="fa fa-plus"></i></button>
+          <button class="btn btn-primary" id={{i}} (click)="plus(getCart)"><i class="fa fa-plus"></i></button>
           </div>
           <div class="form-check-inline">
           <input type="text" class="form-control"  value={{getCart.quantity}} readonly>
           </div>
           <div class="form-check-inline">
-          <button class="btn btn-primary" id={{i}} (click)="minus(getCart)">-<i class="fa fa-minus"></i></button>
+          <button class="btn btn-primary" id={{i}} (click)="minus(getCart)"><i class="fa fa-minus"></i></button>
           </div>
         <td>
           <div class="form-check-inline">

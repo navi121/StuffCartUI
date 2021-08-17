@@ -19,6 +19,9 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +36,8 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     CartdetailsComponent,
     CheckoutComponent,
     ForgetpasswordComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     NgbModule,
     MDBBootstrapModule.forRoot()
   ],
-  providers: [UserService],
+  providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
