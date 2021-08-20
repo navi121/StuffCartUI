@@ -24,7 +24,7 @@ div.example input[type=text] {
   }
   
   /* Clear floats */
-  form.d-flex::after {
+  div.d-flex::after {
     content: "";
     clear: both;
     display: table;

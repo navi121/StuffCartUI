@@ -13,7 +13,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { AdminuploadComponent } from './adminupload/adminupload.component';
-import { SellerloginComponent } from './sellerlogin/sellerlogin.component';
 import { CartdetailsComponent } from './cartdetails/cartdetails.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -32,7 +31,6 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     NavbarComponent,
     CarouselComponent,
     AdminuploadComponent,
-    SellerloginComponent,
     CartdetailsComponent,
     CheckoutComponent,
     ForgetpasswordComponent,

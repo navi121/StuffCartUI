@@ -19,7 +19,7 @@
     body {
       margin: 0;
       padding: 0;
-      background-image: url("../pickawood-gf8e6XvG_3E-unsplash.jpg");
+      /* background-image: url("../pickawood-gf8e6XvG_3E-unsplash.jpg"); */
       /*background: white;linear-gradient(120deg,#2980b9, #8e44ad);*/
       background-repeat: no-repeat;
       background-size: cover;
@@ -28,12 +28,12 @@
     
     .center {
       position: absolute;
-      top: 50%;
+      top: 60%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 400px;
       background-color:white;
-      border-radius: 10px;
+      border-radius: 20px;
       box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
     }
     

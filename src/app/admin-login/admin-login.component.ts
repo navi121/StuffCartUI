@@ -11,7 +11,7 @@ import { UserService } from '../shared/user.service';
 })
 export class AdminLoginComponent implements OnInit {
   public admin: Admin;
-
+  public errorMessage: boolean;
   constructor(private userService: UserService,
     private router: Router) { }
 
@@ -29,10 +29,15 @@ export class AdminLoginComponent implements OnInit {
   }
 
   public async OnSubmit(form: NgForm): Promise<void> {
+    this.errorMessage=true;
     this.userService.adminLogin(form.value)
     .subscribe(()=>{
       this.router.navigateByUrl('addproduct');
     this.resetForm(form);
-    });
+    }
+    ,(error)=>{
+      this.errorMessage=true;
+    }
+    );
   }
 }

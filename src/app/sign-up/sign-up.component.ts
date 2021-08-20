@@ -27,14 +27,15 @@ resetForm(form ?:NgForm){
     Email:'',
     FirstName:'',
     LastName:'',
-
+    SecurityAnswer:'',
+    SecurityQuestion:''
   }
 }
 
 public async OnSubmit(form: NgForm): Promise<void> {
   this.userService.registerUser(form.value)
   .subscribe(()=>{
-   this.router.navigateByUrl('home');
+   this.router.navigateByUrl('login');
   this.resetForm(form);
   });
 }

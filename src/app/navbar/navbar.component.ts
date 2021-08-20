@@ -11,10 +11,10 @@ import { UserService } from '../shared/user.service';
 })
 export class NavbarComponent implements OnInit {
   public isLoggedIn$: Observable<boolean>;
-  userDisplayName: string | null;
+  public userDisplayName: string | null;
   public searchText:any;
   public keyword: string;
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService) { }
 
   public ngOnInit(): void {
     this.isLoggedIn$=this.userService.isLoggedIn;
@@ -23,22 +23,22 @@ export class NavbarComponent implements OnInit {
   public logOut() {
     localStorage.removeItem('loggedUser');
     this.userService.logOut();
+    this.userDisplayName=localStorage.getItem('loggedUser');;
   }
   public search(){
     this.keyword=this.searchText;
     this.userService.searchProduct(this.keyword);
   }
-  // public resetForm(form?: NgForm) {
-  //   if (form != null)
-  //     form.reset();
-  //   this.search = {
-  //     ProductName:''
-  //   }
-  // }
-  // public async OnSubmit(form: NgForm): Promise<void> {
-  //   this.userService.searchProduct(form.value)
-  //   .subscribe(()=>{
-  //   });
-  // }
-  
+  public searchMen(){
+    this.keyword="Men";
+    this.userService.searchCategory(this.keyword);
+  }
+  public searchWomen(){
+    this.keyword="Women";
+    this.userService.searchCategory(this.keyword);
+  }
+  public searchKid(){
+    this.keyword="KId";
+    this.userService.searchCategory(this.keyword);
+  }
 }

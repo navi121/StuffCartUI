@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AddItem, User, UserLog, CartItem, Reset, Pass, Admin, Search } from './user.model';
+import { AddItem, User, UserLog, CartItem, Reset, Pass, Admin, Search, Img } from './user.model';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 @Injectable()
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class UserService {
   list: AddItem[];
   items: CartItem[] = [];
+  imglist: Img[];
   isAuthenticated = false;
   public loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public checkStatus={}
@@ -49,7 +50,9 @@ export class UserService {
   public resetPassword(pass: Pass) {
     const body: Pass = {
       Password: pass.Password,
-      MobileNumber: pass.MobileNumber
+      MobileNumber: pass.MobileNumber,
+      SecurityAnswer: pass.SecurityAnswer,
+      SecurityQuestion: pass.SecurityQuestion
     }
     return this.http.put(this.rootUrl + '/ResetPassword/' + pass.MobileNumber, body);
   }
@@ -59,9 +62,11 @@ export class UserService {
       Password: user.Password,
       Email: user.Email,
       FirstName: user.FirstName,
-      LastName: user.LastName
+      LastName: user.LastName,
+      SecurityAnswer: user.SecurityAnswer,
+      SecurityQuestion: user.SecurityQuestion
     }
-    return this.http.post(this.rootUrl + '/StuffKart', body);
+    return this.http.post(this.rootUrl + '/AddUser', body);
   }
 
   public addproduct(additem: AddItem) {
@@ -72,29 +77,38 @@ export class UserService {
       size: additem.size,
       image: additem.image,
       quantity: additem.quantity,
-      total: additem.total
+      total: additem.total,
+      category: additem.category
     }
     return this.http.post(this.rootUrl + '/AddProduct', body);
   }
-
+  public uploadImages(id: Int32List,files: string | Blob){
+    const formData = new FormData();
+    formData.append("files", files);
+    return this.http.post(this.rootUrl + '/Image/' + id, formData);
+  }
   public getdetails() {
     this.http.get(this.rootUrl + '/AddProduct').toPromise().then(res => this.list = res as AddItem[]);
+  }
+  public getImage() {
+    this.http.get(this.rootUrl + '/ImageUpload').toPromise().then(res => this.imglist = res as Img[]);
   }
   public searchProduct(searchText: string){
        this.http.get(this.rootUrl + '/SearchBar/' + searchText).toPromise().then(res => this.list = res as AddItem[]);
       
   }
-  // getcartdetails(){
-  //   this.http.get(this.rootUrl +'/CartDetails').toPromise().then(res =>this.items=res as CartItem[]);
-  // }
-  public addToCart(product: CartItem) {
+  public searchCategory(category: string){
+    this.http.get(this.rootUrl + '/Category/' + category).toPromise().then(res => this.list = res as AddItem[]);
+  }
+  public addToCart(product: CartItem,size: string) {
+      product.size=size;
     const body: CartItem = {
       productName: product.productName,
       productDescription: product.productDescription,
       price: product.price,
       size: product.size,
       quantity: product.quantity,
-      total: product.total
+      total:product.total
     }
     this.items.push(product);
     return this.http.post(this.rootUrl + '/CartDetails', body);
@@ -124,12 +138,6 @@ export class UserService {
     this.items = [];
     return this.items;
   }
-  // add(items: CartItem){  
-  //   this.value=items  
-  //   for(let j=0;j<items.length;j++){  
-  //        this.sum+= this.value[j].price  
-  //        }  
-  // }
 
 
 }

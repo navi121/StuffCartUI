@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
 export class ForgetpasswordComponent implements OnInit {
 
   public reset: Reset;
-
+  public errorMessage: boolean;
   constructor(private userService : UserService,
     public readonly router: Router) { }
 
@@ -28,12 +28,15 @@ export class ForgetpasswordComponent implements OnInit {
   }
 
   public async OnSubmit(form: NgForm): Promise<void> {
+    this.errorMessage=false;
     this.userService.resetUser(form.value)
     .subscribe(()=>{
-      // sessionStorage.setItem('loggedUser', this.login.Email);
-      //this.userService.loginUser(this.loginUser.Email);
      this.router.navigateByUrl('pass');
     this.resetForm(form);
-    });
+    }
+    ,(error)=>{
+      this.errorMessage=true;
+    }
+    );
   }
 }

@@ -14,6 +14,18 @@
          <span></span>
          <label>ProductName</label>
        </div>
+       <!-- <div class="txt_field">
+        <input  class="validate" type="text"  required  minlength="1">
+        <span></span>
+        <label>Category</label>
+      </div> -->
+      Select Category
+      <select class="form-select" aria-label="Default select example" name="category" #Category="ngModel" [(ngModel)]="additem.category" >
+      
+        <option value="Men">Men</option>
+        <option value="Women">Women</option>
+        <option value="Kid">Kid</option>
+      </select>
        <div class="txt_field">
         <input  class="validate" type="text" name="productDescription" #ProductDescription="ngModel" [(ngModel)]="additem.productDescription" required  minlength="1">
         <span></span>
@@ -29,18 +41,18 @@
          <span></span>
          <label>Size</label>
        </div>
-       <div class="txt_field">
-        <input type="validate" class="validate" type="text" name="image" #Image="ngModel" [(ngModel)]="additem.image" required  minlength="3">
+       <!-- <div class="txt_field">
+        <input type="file" class="validate" type="text" name="image" #Image="ngModel" [(ngModel)]="additem.image" required  minlength="3">
         <span></span>
         <label>Image</label>
-      </div>
-      <div>
-        <input type="hidden" #Quantity="ngModel" [(ngModel)]="additem.quantity" value="1">
-      </div>
-       <!-- <div class="">
-        <input type="file"  #Image accept="image/*" >
-        <span></span>
       </div> -->
+      <!-- <div>
+        <input type="hidden" #Quantity="ngModel" [(ngModel)]="additem.quantity" value="1">
+      </div> -->
+       <div class="">
+        <input type="file"  #Image accept="image/*" (change)="imgUpload($event)" >
+        <span></span>
+      </div>
       <div class="signup_link">
         <a href=""></a>
       </div>

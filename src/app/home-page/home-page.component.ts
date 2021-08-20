@@ -11,22 +11,28 @@ import { Observable } from 'rxjs';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  quantity : number=0;
-  searchText:any;
-
-  public addToCart(product: CartItem){
-    this.userService.addToCart(product);
+  public size: string="S";
+    public addToCart(product: CartItem){
+    this.userService.addToCart(product,this.size);
     window.alert('product added');
+   
   }
+  
   public isLoggedIn$: Observable<boolean>;
   constructor(public userService: UserService,public readonly router: Router) { }
+  
   ngOnInit(): void {
     this.userService.getdetails();
+    this.userService.getImage();
   }
+  changeSize(event: any){
+    this.size=event.target.value;
+  }
+  
   public async Click(button: NgForm): Promise<void> {
-    this.userService.addToCart(button.value)
-    .subscribe(()=>{
-    });
+    // this.userService.addToCart(button.value)
+    // .subscribe(()=>{
+    // });
   }
   
 }

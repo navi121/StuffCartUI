@@ -2,7 +2,10 @@
    font-size: medium;
    color: teal;
  }
-
+ .card-img-top{
+   height: 300px;
+   width: 260px;
+ }
  .card-price {
    font-size: large;
  }
@@ -18,4 +21,12 @@
  .container button:last-child{
     margin-right:0px;
  }
+ label {
+  font: 1rem 'Fira Sans', sans-serif;
+}
+
+input {
+  margin: .4rem;
+}
+
  

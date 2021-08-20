@@ -40,6 +40,17 @@
         <span></span>
         <label>MobileNumber</label>
       </div>
+      <select class="form-select" aria-label="Default select example" name="SecurityQuestion" #SecurityQuestion="ngModel" [(ngModel)]="user.SecurityQuestion">
+        <option value="Which City You Have Born?">Which City You Have Born?</option>
+         <option value="What is your First Mobile?">What is your First Mobile?</option>
+         <option value="What is Your First Pet Name?">What is Your First Pet Name?</option>
+       </select>
+       <div class="txt_field">
+         <input class="validate" type="text" name="SecurityAnswer" #SecurityAnswer="ngModel" [(ngModel)]="user.SecurityAnswer"
+           required minlength="3">
+         <span></span>
+         <label>Type Your Answer : Remember your Answer</label>
+       </div>
       <input type="submit" value="Signup" href="../home-page/home-page.component.html">
       <div class="signup_link">
         Already a member? <a routerLink="/login">SignIn</a><br /><a routerLink="/home">Skip</a>

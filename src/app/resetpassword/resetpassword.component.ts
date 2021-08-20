@@ -12,7 +12,7 @@ import { UserService } from '../shared/user.service';
 export class ResetpasswordComponent implements OnInit {
 
   public pass: Pass;
-
+  public errorMessage: boolean;
   constructor(private userService : UserService,
     public readonly router: Router) { }
 
@@ -26,17 +26,24 @@ export class ResetpasswordComponent implements OnInit {
     this.pass = {
      Password:'',
      MobileNumber:'',
+     SecurityAnswer:'',
+     SecurityQuestion:''
     }
   }
 
   public async OnSubmit(form: NgForm): Promise<void> {
+    this.errorMessage=false;
     this.userService.resetPassword(form.value)
     .subscribe(()=>{
       // sessionStorage.setItem('loggedUser', this.login.Email);
       //this.userService.loginUser(this.loginUser.Email);
      this.router.navigateByUrl('login');
     this.resetForm(form);
-    });
+    }
+    ,(error)=>{
+      this.errorMessage=true;
+    }
+    );
   }
 
 }
